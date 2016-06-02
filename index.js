@@ -2,13 +2,11 @@
 
 var express = require('express');
 
-// Constants
-var PORT = 8888;
+var PORT = (process.env.PORT || 8888);
 
-// App
 var app = express();
 app.get('/', function (req, res) {
-	res.send('Hello world\n');
+	res.send('Hello world\nI am listening on ' + PORT);
 });
 
 app.listen(PORT);
