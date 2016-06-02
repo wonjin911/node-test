@@ -1,7 +1,7 @@
 {
   "name": "supernova",
   "version": "0.0.1",
-  "description": "",
+  "description": "docker nodejs example",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,10 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.corp.ebay.com:golee/docker-nodejs-example.git"
+    "url": "git@github.corp.ebay.com:golee/supernova-nodejs.git"
   },
   "author": "golee@ebay.com",
-  "license": "BSD-2-Clause",
   "dependencies": {
     "express": "~4.13.4"
   }

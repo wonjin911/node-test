@@ -1,7 +1,7 @@
 FROM node:4-onbuild
 
 # replace this with your application's default port
-EXPOSE 8888
+EXPOSE 8080
 
 # Create app directory
 RUN mkdir -p /usr/src/app
