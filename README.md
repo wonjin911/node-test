@@ -7,7 +7,7 @@ docker build -t golee/supernova-nodejs .
 docker run --name supernova-nodejs-1 -p 60000:8888 -e "PORT=8888" -d golee/supernova-nodejs
 
 docker login ecr.vip.ebayc3.com
-docker commit 379a44691944 ecr.vip.ebayc3.com/golee/supernova-nodejs
+docker commit {CONTAINER_ID} ecr.vip.ebayc3.com/golee/supernova-nodejs
 docker push ecr.vip.ebayc3.com/golee/supernova-nodejs
 ```
 
