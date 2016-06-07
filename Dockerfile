@@ -1,4 +1,4 @@
-FROM node:4-onbuild
+FROM node
 
 # replace this with your application's default port
 EXPOSE 8080
@@ -14,4 +14,4 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-CMD [ "node", "index.js" ]
+CMD [ "npm", "start" ]
