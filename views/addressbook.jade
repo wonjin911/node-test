@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= "Add new address"
+  p Please select your zipcode and enter your street address details
+  br
+  form(name="add-new-address", method="post")
+   p
+    span.label Name
+    div.input
+     input(type="text", name="name", style="width:300px")
+   p 
+    span.label Write your city
+    div.input
+     input(type="text", name="city", style="width:300px")
+   p
+    span.label Zipcode
+    div.input
+     select(multiple="multiple", size="10")
+      - datas = [ '21510', '21513', '06702', '06707', '06708' ]
+      each item in datas
+       option() #{item}
+   p
+    span.label Write your street address details
+    div.input
+     input(type="text", name="address", style="width:500px")
+   p
+    div.actions
+     input(type="submit", value="Save")
+
+
