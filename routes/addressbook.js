@@ -8,6 +8,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/zipcode', function (req, res, next) {
+	var city = req.query.city;
+	var address = [ '21510', '21513', '06702', '06707', '06708', '06709' ];
+
+	res.send(address);
+});
+
 router.post('/', function (req, res) {
 	var name = req.body.name;
 	var zipcode = req.body.zipcode;
