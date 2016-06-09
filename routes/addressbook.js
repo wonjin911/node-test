@@ -1,5 +1,10 @@
+/*
+ * Module Dependencies
+ */
 var express = require('express');
 var router = express.Router();
+
+var Search = require('../lib/search');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,9 +15,15 @@ router.get('/', function(req, res, next) {
 
 router.get('/zipcode', function (req, res, next) {
 	var city = req.query.city;
-	var address = [ '21510', '21513', '06702', '06707', '06708', '06709' ];
 
-	res.send(address);
+	Search.getAddress(city, function (addr) {
+		var formatted = addr.map(function (x) {
+			return x.ZIP_CD + '	' + x.ROAD_NAME_ADDRESS;
+		}).sort();
+		//console.log(formatted);
+
+		res.send(formatted);
+	});
 });
 
 router.post('/', function (req, res) {
