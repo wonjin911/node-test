@@ -19,27 +19,50 @@ router.get('/zipcode', function (req, res, next) {
 
 	Search.getAddress(city, function (addr) {
 		var formatted = addr.map(function (x) {
-			return x.ZIP_CD + '	' + x.ROAD_NAME_ADDRESS;
+			return {
+				zipcode: x.ZIP_CD,
+				road_addr: x.ROAD_NAME_ADDRESS
+			};
 		}).sort();
 		res.send(formatted);
 	});
 });
 
 router.post('/', function (req, res) {
+	var DELIM = '|';
+
 	var id = 'johndoe';
 	var name = req.body.name;
-	var zipcode = req.body.zipcode;
+	var zipcode_field = req.body.zipcode;
 	var address = req.body.address;
+	var zipcode;
+	var road_addr;
 
-	if (name && zipcode && address) {
-		zipcode = zipcode.split('\t');
+	if (zipcode_field && typeof zipcode_field === 'string' && zipcode_field.indexOf(DELIM) > 0) {
+		zipcode_field = zipcode_field.split(DELIM);
+		zipcode = zipcode_field[0].trim();
+		road_addr = zipcode_field[1].trim();
+	}
 
-		Escrow.putAddress(id, name, zipcode[0], roadAddr[1], address, function (res) {
-			res.send('Done. name=' + name + ', zipcode=' + zipcode + ', address=' + address);
+	if (name && zipcode && road_addr && address) {
+		Escrow.putAddress(id, name, zipcode, road_addr, address, function (status) {
+			res.render('addressbook_resp', {
+				title: 'Done: ' + status,
+				name: name,
+				zipcode: zipcode,
+				roadname_addr: road_addr,
+				additional_addr: address
+			});
 		});
 	}
 	else {
-		res.send('Incomplete. name=' + name + ', zipcode=' + zipcode + ', address=' + address);
+		res.render('addressbook_resp', {
+			title: 'Incomplete',
+			name: name,
+			zipcode: zipcode,
+			roadname_addr: road_addr,
+			additional_addr: address
+		});
 	}
 });
 

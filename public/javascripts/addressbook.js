@@ -5,7 +5,7 @@ var interval = 1000; 		// 2s
 var drawZipcode = function () {
 	$('#zipcode').empty();
 	for (zipcode of zipcodeData) {
-		$('#zipcode').append('<option>' + zipcode + '</option>');
+		$('#zipcode').append('<option>' + zipcode.zipcode + '\t|\t' + zipcode.road_addr + '</option>');
 	}
 };
 
