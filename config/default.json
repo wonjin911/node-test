@@ -1,11 +1,11 @@
 {
 	"api": {
 		"search": {
-			"host": "supernova-haproxy.kwonjin",
+			"host": "supernova-haproxy",
 			"port": 8088
 		},
 		"escrow": {
-			"host": "supernova-haproxy.kwonjin",
+			"host": "supernova-haproxy",
 			"port": 8088
 		}
 	}
