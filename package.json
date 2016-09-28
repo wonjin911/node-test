@@ -1,26 +1,3 @@
-{
-  "name": "supernova",
-  "version": "0.0.2",
-  "description": "docker nodejs example",
-  "main": "index.js",
-  "scripts": {
-    "start": "node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+ "scripts": {
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.corp.ebay.com:golee/supernova-nodejs.git"
-  },
-  "author": "golee@ebay.com",
-  "dependencies": {
-    "express": "~4.13.4",
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "jade": "~1.11.0",
-    "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0",
-    "config": "~1.21.0",
-    "querystring": "~0.2.0"
-  }
-}
